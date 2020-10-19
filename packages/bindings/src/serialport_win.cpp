@@ -782,8 +782,8 @@ void getSerialNumber(const char *vid,
 void EIO_List(uv_work_t* req) {
   ListBaton* data = static_cast<ListBaton*>(req->data);
 
-  GUID *guidDev = (GUID*)& GUID_DEVCLASS_PORTS;  // NOLINT
-  HDEVINFO hDevInfo = SetupDiGetClassDevs(guidDev, NULL, NULL, DIGCF_PRESENT | DIGCF_PROFILE);
+  GUID *guidDev = (GUID*)& GUID_DEVINTERFACE_COMPORT;  // NOLINT
+  HDEVINFO hDevInfo = SetupDiGetClassDevs(guidDev, NULL, NULL, DIGCF_PRESENT | DIGCF_DEVICEINTERFACE );
   SP_DEVINFO_DATA deviceInfoData;
 
   int memberIndex = 0;
