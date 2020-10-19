@@ -756,7 +756,7 @@ void getSerialNumber(const char *vid,
                 // Query VID_(vendorId)&PID_(productId)\(serialnumber)\ContainerID
                 DWORD retCode = RegQueryValueEx(deviceHKey, "ContainerID", NULL, NULL, (LPBYTE)&readUuid, &readSize);
                 if (retCode == ERROR_SUCCESS) {
-                    readUuid[readSize] = '\0';
+                     readUuid[readSize] = '\0';
                     if (strcmp(wantedUuid, readUuid) == 0) {
                         // The ContainerID UUIDs match, return now that serialNumber has
                         // the right value.
